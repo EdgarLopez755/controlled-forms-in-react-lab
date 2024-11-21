@@ -7,5 +7,10 @@ const Bookshelf = () => {
         author: ''
     })
 
-    
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setNewBook({ ...newBook, [name]: value })
+    }
+
+    const handleSubmit
 }
