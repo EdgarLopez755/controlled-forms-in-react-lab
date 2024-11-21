@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 const Bookshelf = () => {
-    const [books, setBook] = useState([])
+    const [books, setBooks] = useState([])
     const [newBook, setNewBook] = useState({
         title: '',
         author: ''
@@ -12,5 +12,12 @@ const Bookshelf = () => {
         setNewBook({ ...newBook, [name]: value })
     }
 
-    const handleSubmit
+    const handleSubmit = () => {
+        setBooks([...books, newBook])
+        setNewBook({title: '', author: ''})
+    }
+
+    return (
+        <div></div>
+    )
 }
