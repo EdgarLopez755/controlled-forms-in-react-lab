@@ -12,12 +12,44 @@ const Bookshelf = () => {
         setNewBook({ ...newBook, [name]: value })
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = (event) => {
+        event.preventDefault()
         setBooks([...books, newBook])
         setNewBook({title: '', author: ''})
     }
 
+
     return (
-        <div></div>
+        <div className='bookshelfDiv'>
+            <div className='formDiv'>
+                <h3>Add a Book 📚</h3>
+                <input
+                    type='text'
+                    name='title'
+                    value={newBook.title}
+                    onChange={handleInputChange}
+                    placeholder='Title'
+                />
+                <input 
+                    type='text'
+                    name='author'
+                    value={newBook.author}
+                    onChange={handleInputChange}
+                    placeholder='Author'
+                />
+                <button onClick={handleSubmit}>Add Book</button>
+            </div>
+            <div className='bookCardsDiv'>
+                {books.map((book, index) => (
+                    <div key={index} className='bookCard'> 
+                        <h4>{book.title}</h4>
+                        <p>{book.author}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
     )
 }
+
+export default Bookshelf;
+
